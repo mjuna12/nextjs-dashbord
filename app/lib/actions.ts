@@ -7,13 +7,13 @@ import { redirect } from 'next/navigation';
 
 const FormSchema = z.object({
     id: z.string(),
-    customersId: z.string(),
+    customerId: z.string(),
     amount: z.number(),
     status: z.enum(['pending', 'paid']),
     date: z.string(),
 })
 
-const CreateInvoice = FormSchema.omit({id: true, date: true});
+const CreateInvoice = FormSchema.omit({ id: true, date: true });
 export async function createInvoice(formData: FormData){
     const { customerId, amount, status } = CreateInvoice.parse({
         customerId: formData.get('customerId'),
