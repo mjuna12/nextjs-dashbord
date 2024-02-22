@@ -6,6 +6,11 @@ import { fetchCardData } from '@/app/lib/data';
 import CardWrapper from '@/app/ui/dashboard/cards';
 import { Suspense } from 'react';
 import { LatestInvoicesSkeleton, RevenueChartSkeleton, CardSkeleton } from '@/app/ui/skeletons';
+import { Metadata } from 'next';
+
+const metadata: Metadata = {
+  title: 'Dashboard | Acme Dashboard'
+}
 
 export default async function Page(){
     const { numberOfInvoices, numberOfCustomers, totalPaidInvoices, totalPendingInvoices } = await fetchCardData();
